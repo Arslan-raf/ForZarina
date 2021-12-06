@@ -17,7 +17,8 @@ namespace Рафиков_СРВ
         int minute, second;
         int minute2, second2;
         int active;
-
+        double stage = 1;
+        int x1, y1;
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +33,11 @@ namespace Рафиков_СРВ
             active = 0;
             Random r = new Random();
             int[] kek = new int[11];
+
+            //для графика
+
+
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -206,170 +212,203 @@ namespace Рафиков_СРВ
             }
         }
 
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
         private void go_over_button_Click(object sender, EventArgs e)
         {
             this.tabControl1.SelectedTab = tabPage2 /*needed tab*/;
         }
+
+
+
+
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             
                 date_time.Text = DateTime.Now.ToString();
 
-                if (timer2.Enabled)
+
+            if (timer2.Enabled)
+            {
+                if (second2 < 59)
                 {
-                    if (second2 < 59)
+                    second2++;
+                    if (second2 == 30)
                     {
-                        second2++;
-                        if (second2 == 30)
+                        active = 0;
+                        Random r = new Random();
+                        //int kek = r.Next(2);
+                        int[] kek = new int[11];
+                        for (int i = 0; i < kek.Length; i++)
                         {
-                            active = 0;
-                            Random r = new Random();
-                            //int kek = r.Next(2);
-                            int[] kek = new int[11];
-                            for (int i = 0; i < kek.Length; i++)
-                            {
-                                kek[i] = r.Next(2);
-
-                            }
-
-                            if (kek[0] == 1)
-                            {
-                                pk_textBox1.ForeColor = Color.Red;
-
-                            }
-                            else pk_textBox1.ForeColor = Color.ForestGreen;
-
-                            if (kek[1] == 1)
-                            {
-                                pk_textBox2.ForeColor = Color.Red;
-
-                            }
-                            else pk_textBox2.ForeColor = Color.ForestGreen;
-                            if (kek[2] == 1)
-                            {
-                                pk_textBox3.ForeColor = Color.Red;
-
-                            }
-                            else pk_textBox3.ForeColor = Color.ForestGreen;
-                            if (kek[3] == 1)
-                            {
-                                pk_textBox4.ForeColor = Color.Red;
-
-                            }
-                            else pk_textBox4.ForeColor = Color.ForestGreen;
-                            if (kek[4] == 1)
-                            {
-                                pk_textBox5.ForeColor = Color.Red;
-
-                            }
-                            else pk_textBox5.ForeColor = Color.ForestGreen;
-                            if (kek[5] == 1)
-                            {
-                                server_textBox1.ForeColor = Color.Red;
-
-                            }
-                            else server_textBox1.ForeColor = Color.ForestGreen;
-
-                            if (kek[6] == 1)
-                            {
-                                server_textBox2.ForeColor = Color.Red;
-
-                            }
-                            else server_textBox2.ForeColor = Color.ForestGreen;
-
-                            if (kek[7] == 1)
-                            {
-                                network_devices_textBox1.ForeColor = Color.Red;
-
-                            }
-                            else network_devices_textBox1.ForeColor = Color.ForestGreen;
-                            if (kek[8] == 1)
-                            {
-                                network_devices_textBox2.ForeColor = Color.Red;
-
-                            }
-                            else network_devices_textBox2.ForeColor = Color.ForestGreen;
-
-
-                            if (kek[9] == 1)
-                            {
-                                firewall_textBox1.ForeColor = Color.Red;
-
-                            }
-                            else firewall_textBox1.ForeColor = Color.ForestGreen;
-
-                            if (kek[10] == 1)
-                            {
-                                firewall_textBox2.ForeColor = Color.Red;
-
-                            }
-                            else firewall_textBox2.ForeColor = Color.ForestGreen;
-
-                            if (pk_textBox1.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (pk_textBox2.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (pk_textBox3.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (pk_textBox4.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (pk_textBox5.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-
-
-
-                            if (server_textBox1.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (server_textBox2.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (network_devices_textBox1.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (network_devices_textBox2.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-                            if (firewall_textBox1.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-
-                            if (firewall_textBox2.ForeColor == Color.ForestGreen)
-                            {
-                                active++;
-                            }
-
-
-
-                            active_textBox.Text = Convert.ToString(active);
-                            active_textBox2.Text = Convert.ToString(11 - active);
-                             label2.Visible = true;
-                            go_over_button.Visible = true;
+                            kek[i] = r.Next(2);
 
                         }
-                    }
-                    else
-                    {
-                        minute2++;
-                        second2 = 0;
+
+                        if (kek[0] == 1)
+                        {
+                            pk_textBox1.ForeColor = Color.Red;
+
+                        }
+                        else pk_textBox1.ForeColor = Color.ForestGreen;
+
+                        if (kek[1] == 1)
+                        {
+                            pk_textBox2.ForeColor = Color.Red;
+
+                        }
+                        else pk_textBox2.ForeColor = Color.ForestGreen;
+                        if (kek[2] == 1)
+                        {
+                            pk_textBox3.ForeColor = Color.Red;
+
+                        }
+                        else pk_textBox3.ForeColor = Color.ForestGreen;
+                        if (kek[3] == 1)
+                        {
+                            pk_textBox4.ForeColor = Color.Red;
+
+                        }
+                        else pk_textBox4.ForeColor = Color.ForestGreen;
+                        if (kek[4] == 1)
+                        {
+                            pk_textBox5.ForeColor = Color.Red;
+
+                        }
+                        else pk_textBox5.ForeColor = Color.ForestGreen;
+                        if (kek[5] == 1)
+                        {
+                            server_textBox1.ForeColor = Color.Red;
+
+                        }
+                        else server_textBox1.ForeColor = Color.ForestGreen;
+
+                        if (kek[6] == 1)
+                        {
+                            server_textBox2.ForeColor = Color.Red;
+
+                        }
+                        else server_textBox2.ForeColor = Color.ForestGreen;
+
+                        if (kek[7] == 1)
+                        {
+                            network_devices_textBox1.ForeColor = Color.Red;
+
+                        }
+                        else network_devices_textBox1.ForeColor = Color.ForestGreen;
+                        if (kek[8] == 1)
+                        {
+                            network_devices_textBox2.ForeColor = Color.Red;
+
+                        }
+                        else network_devices_textBox2.ForeColor = Color.ForestGreen;
+
+
+                        if (kek[9] == 1)
+                        {
+                            firewall_textBox1.ForeColor = Color.Red;
+
+                        }
+                        else firewall_textBox1.ForeColor = Color.ForestGreen;
+
+                        if (kek[10] == 1)
+                        {
+                            firewall_textBox2.ForeColor = Color.Red;
+
+                        }
+                        else firewall_textBox2.ForeColor = Color.ForestGreen;
+
+                        if (pk_textBox1.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (pk_textBox2.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (pk_textBox3.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (pk_textBox4.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (pk_textBox5.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+
+
+
+                        if (server_textBox1.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (server_textBox2.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (network_devices_textBox1.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (network_devices_textBox2.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+                        if (firewall_textBox1.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+
+                        if (firewall_textBox2.ForeColor == Color.ForestGreen)
+                        {
+                            active++;
+                        }
+
+
+
+                        active_textBox.Text = Convert.ToString(active);
+                        active_textBox2.Text = Convert.ToString(11 - active);
+                        label2.Visible = true;
+                        go_over_button.Visible = true;
+
+
+                        if (minute2 % 10 == 0) {
+                            this.chart1.Series[0].Points.Clear();
+                            x1 = 0;
+                            y1 = 0;
+                        }
+
+                        //this.chart1.Series[0].Points.Clear(); //если пройдет 3 минуты (обновить)
+                        string X = DateTime.Now.ToString("HH:mm:ss");
+                        y1 = active;
+                        x1++;
+
+                            //y = Math.Sin(x);
+                            this.chart1.Series[0].Points.AddXY(X, y1);
+                            //x += h;
+
+                  
+
+
+
+
                     }
                 }
+                else
+                {
+                    minute2++;
+                    second2 = 0;
+                }
+            }
 
             
         }
