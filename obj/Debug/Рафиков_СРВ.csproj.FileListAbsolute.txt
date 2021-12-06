@@ -1,0 +1,10 @@
+C:\Users\Арс\source\repos\Рафиков_СРВ\bin\Debug\Рафиков_СРВ.exe.config
+C:\Users\Арс\source\repos\Рафиков_СРВ\bin\Debug\Рафиков_СРВ.exe
+C:\Users\Арс\source\repos\Рафиков_СРВ\bin\Debug\Рафиков_СРВ.pdb
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.csproj.AssemblyReference.cache
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.Form1.resources
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.Properties.Resources.resources
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.csproj.GenerateResource.cache
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.csproj.CoreCompileInputs.cache
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.exe
+C:\Users\Арс\source\repos\Рафиков_СРВ\obj\Debug\Рафиков_СРВ.pdb
